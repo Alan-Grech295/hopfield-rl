@@ -1,0 +1,3235 @@
+{
+  "milestone": "M01",
+  "created_at_utc": "2026-10-05T16:56:32.526276+00:00",
+  "hypothesis": "History is needed for hidden cues; payout delay preserves the best choice.",
+  "gamma": 0.99,
+  "success_target": 0.95,
+  "gate_passed": true,
+  "decision": "continue to M02/M03",
+  "training_runs": 0,
+  "parameter_updates": 0,
+  "retrieval_iterations": 0,
+  "policy_sampling_seeds": [
+    101,
+    202,
+    303
+  ],
+  "stopping_rule": "fixed episode budget per condition; no adaptive retries or exclusions",
+  "reset_rules": "reset policy state, previous action/reward at termination or truncation",
+  "privileged_access": "simulator_oracle and exhaustive audits only",
+  "observation_window": "one current frame; cue_memory retains only observed past cue",
+  "audits": {
+    "memory": {
+      "paired_cases": 48,
+      "passed": true,
+      "balanced_reactive_success_bound": 0.5,
+      "episodes": 96,
+      "environment_steps": 2040
+    },
+    "reward_delay": {
+      "cue_layout_delay_cases": 48,
+      "passed": true,
+      "gamma": 0.99,
+      "episodes": 96,
+      "environment_steps": 2232
+    }
+  },
+  "conditions": [
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.51975,
+      "discounted_return_standard_error": 0.03504573017526654,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.49005,
+      "discounted_return_standard_error": 0.03508786512306601,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.51975,
+      "discounted_return_standard_error": 0.03504573017526654,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.5043129052499999,
+      "discounted_return_standard_error": 0.03400483694333095,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.47549502494999996,
+      "discounted_return_standard_error": 0.034045720441045826,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.5043129052499999,
+      "discounted_return_standard_error": 0.03400483694333095,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4653520576509678,
+      "discounted_return_standard_error": 0.031377782874345166,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.438760511499484,
+      "discounted_return_standard_error": 0.03141550790495122,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4653520576509678,
+      "discounted_return_standard_error": 0.031377782874345166,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4124810239237898,
+      "discounted_return_standard_error": 0.027812792047812993,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.38891067969957327,
+      "discounted_return_standard_error": 0.02784623094422723,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4124810239237898,
+      "discounted_return_standard_error": 0.027812792047812993,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.51975,
+      "discounted_return_standard_error": 0.03504573017526654,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.49005,
+      "discounted_return_standard_error": 0.03508786512306601,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.51975,
+      "discounted_return_standard_error": 0.03504573017526654,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.48015,
+      "discounted_return_standard_error": 0.035073825764647404,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.5043129052499999,
+      "discounted_return_standard_error": 0.03400483694333095,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.47549502494999996,
+      "discounted_return_standard_error": 0.034045720441045826,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.5043129052499999,
+      "discounted_return_standard_error": 0.03400483694333095,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.46588906485,
+      "discounted_return_standard_error": 0.03403209806561161,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4653520576509678,
+      "discounted_return_standard_error": 0.031377782874345166,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.438760511499484,
+      "discounted_return_standard_error": 0.03141550790495122,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4653520576509678,
+      "discounted_return_standard_error": 0.031377782874345166,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.4298966627823227,
+      "discounted_return_standard_error": 0.03140293793029379,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4124810239237898,
+      "discounted_return_standard_error": 0.027812792047812993,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.38891067969957327,
+      "discounted_return_standard_error": 0.02784623094422723,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4124810239237898,
+      "discounted_return_standard_error": 0.027812792047812993,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.3810538982915011,
+      "discounted_return_standard_error": 0.02783508910885303,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.51975,
+      "discounted_return_standard_error": 0.03504573017526654,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.49005,
+      "discounted_return_standard_error": 0.03508786512306601,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.51975,
+      "discounted_return_standard_error": 0.03504573017526654,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.48015,
+      "discounted_return_standard_error": 0.035073825764647404,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.5043129052499999,
+      "discounted_return_standard_error": 0.03400483694333095,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.47549502494999996,
+      "discounted_return_standard_error": 0.034045720441045826,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.5043129052499999,
+      "discounted_return_standard_error": 0.03400483694333095,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.46588906485,
+      "discounted_return_standard_error": 0.03403209806561161,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4653520576509678,
+      "discounted_return_standard_error": 0.031377782874345166,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.438760511499484,
+      "discounted_return_standard_error": 0.03141550790495122,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4653520576509678,
+      "discounted_return_standard_error": 0.031377782874345166,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.4298966627823227,
+      "discounted_return_standard_error": 0.03140293793029379,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4124810239237898,
+      "discounted_return_standard_error": 0.027812792047812993,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 99,
+      "success_rate": 0.495,
+      "success_ci95": [
+        0.4264584535990475,
+        0.5637299996647251
+      ],
+      "mean_discounted_return": 0.38891067969957327,
+      "discounted_return_standard_error": 0.02784623094422723,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 105,
+      "success_rate": 0.525,
+      "success_ci95": [
+        0.4559739601468475,
+        0.5930837735342891
+      ],
+      "mean_discounted_return": 0.4124810239237898,
+      "discounted_return_standard_error": 0.027812792047812993,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "pilot",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 97,
+      "success_rate": 0.485,
+      "success_ci95": [
+        0.41667385171877513,
+        0.5538915080725428
+      ],
+      "mean_discounted_return": 0.3810538982915011,
+      "discounted_return_standard_error": 0.02783508910885303,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.4851,
+      "discounted_return_standard_error": 0.035082601022050255,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.4158,
+      "discounted_return_standard_error": 0.034637560581182315,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.4059,
+      "discounted_return_standard_error": 0.034516487211870735,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.4706920449,
+      "discounted_return_standard_error": 0.03404061268909434,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.4034503242,
+      "discounted_return_standard_error": 0.03360879039436062,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.39384436409999996,
+      "discounted_return_standard_error": 0.03349131302519096,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.43432858714090333,
+      "discounted_return_standard_error": 0.031410794753937536,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.3722816461207743,
+      "discounted_return_standard_error": 0.03101233302253631,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.36341779740361296,
+      "discounted_return_standard_error": 0.030903931403419654,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.3849822889955372,
+      "discounted_return_standard_error": 0.027842053278470585,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.3299848191390319,
+      "discounted_return_standard_error": 0.027488862827798718,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.3221280377309597,
+      "discounted_return_standard_error": 0.027392777272544185,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "full_state",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.4851,
+      "discounted_return_standard_error": 0.035082601022050255,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.4158,
+      "discounted_return_standard_error": 0.034637560581182315,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.4059,
+      "discounted_return_standard_error": 0.034516487211870735,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.5148,
+      "discounted_return_standard_error": 0.03506153671452407,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.4706920449,
+      "discounted_return_standard_error": 0.03404061268909434,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.4034503242,
+      "discounted_return_standard_error": 0.03360879039436062,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.39384436409999996,
+      "discounted_return_standard_error": 0.03349131302519096,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.4995099252,
+      "discounted_return_standard_error": 0.03402017401256599,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.43432858714090333,
+      "discounted_return_standard_error": 0.031410794753937536,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.3722816461207743,
+      "discounted_return_standard_error": 0.03101233302253631,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.36341779740361296,
+      "discounted_return_standard_error": 0.030903931403419654,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.4609201332923872,
+      "discounted_return_standard_error": 0.03139193507360987,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.3849822889955372,
+      "discounted_return_standard_error": 0.027842053278470585,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.3299848191390319,
+      "discounted_return_standard_error": 0.027488862827798718,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.3221280377309597,
+      "discounted_return_standard_error": 0.027392777272544185,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "delayed_cue",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.40855263321975377,
+      "discounted_return_standard_error": 0.027825336343142743,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.99,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.4851,
+      "discounted_return_standard_error": 0.035082601022050255,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.4158,
+      "discounted_return_standard_error": 0.034637560581182315,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.4059,
+      "discounted_return_standard_error": 0.034516487211870735,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 1,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.5148,
+      "discounted_return_standard_error": 0.03506153671452407,
+      "environment_steps": 400,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.96059601,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.4706920449,
+      "discounted_return_standard_error": 0.03404061268909434,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.4034503242,
+      "discounted_return_standard_error": 0.03360879039436062,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.39384436409999996,
+      "discounted_return_standard_error": 0.03349131302519096,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 0,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.4995099252,
+      "discounted_return_standard_error": 0.03402017401256599,
+      "environment_steps": 1000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.8863848717161292,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.43432858714090333,
+      "discounted_return_standard_error": 0.031410794753937536,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.3722816461207743,
+      "discounted_return_standard_error": 0.03101233302253631,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.36341779740361296,
+      "discounted_return_standard_error": 0.030903931403419654,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 4,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.4609201332923872,
+      "discounted_return_standard_error": 0.03139193507360987,
+      "environment_steps": 2600,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "simulator_oracle",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "cue_memory",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 200,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_discounted_return": 0.7856781408072188,
+      "discounted_return_standard_error": 0.0,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 101,
+      "episodes": 200,
+      "successes": 98,
+      "success_rate": 0.49,
+      "success_ci95": [
+        0.42156278331213176,
+        0.5588141232154135
+      ],
+      "mean_discounted_return": 0.3849822889955372,
+      "discounted_return_standard_error": 0.027842053278470585,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 202,
+      "episodes": 200,
+      "successes": 84,
+      "success_rate": 0.42,
+      "success_ci95": [
+        0.35373599161616726,
+        0.4892792606041954
+      ],
+      "mean_discounted_return": 0.3299848191390319,
+      "discounted_return_standard_error": 0.027488862827798718,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "random",
+      "policy_seed": 303,
+      "episodes": 200,
+      "successes": 82,
+      "success_rate": 0.41,
+      "success_ci95": [
+        0.34415674908482885,
+        0.4792354096630791
+      ],
+      "mean_discounted_return": 0.3221280377309597,
+      "discounted_return_standard_error": 0.027392777272544185,
+      "environment_steps": 5000,
+      "truncations": 0
+    },
+    {
+      "config": {
+        "variant": "visual",
+        "split": "held_out",
+        "cue_delay": 16,
+        "reward_delay": 8,
+        "time_limit": null
+      },
+      "policy": "reactive",
+      "policy_seed": null,
+      "episodes": 200,
+      "successes": 104,
+      "success_rate": 0.52,
+      "success_ci95": [
+        0.4510378507281424,
+        0.588208336216767
+      ],
+      "mean_discounted_return": 0.40855263321975377,
+      "discounted_return_standard_error": 0.027825336343142743,
+      "environment_steps": 5000,
+      "truncations": 0
+    }
+  ],
+  "episodes": 28800,
+  "evaluation_environment_steps": 324000,
+  "audit_episodes": 192,
+  "audit_environment_steps": 4272,
+  "environment_steps": 328272,
+  "wall_seconds": 9.928442599999471,
+  "runtime": {
+    "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD",
+    "packages": {
+      "gymnasium": "1.4.0",
+      "numpy": "2.5.3",
+      "hopfield-rl": "0.1.0"
+    }
+  },
+  "source": {
+    "git_head": "7a3251036475291d2cd7217f0161f424e7e697bd",
+    "source_sha256": {
+      "__init__.py": "0b01b94d755ef5bfd5c5733b1a0274bccb734fa837c19c2121c1210afef8b690",
+      "env.py": "8fb7e3782fa372fb2e3aafbfdd09d57f84cffe0e48ea233edff61b152ed77373",
+      "evaluate.py": "530bd3bf9b4bc5389631d2f59c855954bee501be983be568d4633126a547178b",
+      "policies.py": "323ba8b27623e7a5cb1396f87a86f29aebf5d4b94c50ccb08fada67d80133d16",
+      "splits.py": "d1a3da4d5f288f4580ed78a3c482642e5e36c0484ae30682724db16c36b9b74f"
+    }
+  },
+  "episodes_file": "episodes.jsonl.gz",
+  "episodes_sha256": "078c33533bab7ea5506be77cfa8144c3976d0f5e59bb51506c69505da0df0a8c"
+}
