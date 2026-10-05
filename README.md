@@ -27,6 +27,9 @@ This opens a window showing one automatic episode: cue, waiting, choice, then
 delayed reward. The final frame stays open until you close the window. Matplotlib
 is installed only when the optional `preview` extra is selected.
 
+Each launch uses a random pilot seed, which is printed for reproducibility.
+Add `--seed 12` (or another integer from 0–999) to replay a fixed episode.
+
 Change the timing with, for example:
 
 ```powershell

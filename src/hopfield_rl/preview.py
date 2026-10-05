@@ -2,15 +2,17 @@
 
 import argparse
 from math import isfinite
+from secrets import choice
 
 from hopfield_rl.env import Action, CueTaskEnv, TaskConfig
+from hopfield_rl.splits import SEED_RANGES
 
 
 def preview(
     *,
     cue_delay: int = 4,
     reward_delay: int = 3,
-    seed: int = 0,
+    seed: int | None = None,
     interval: float = 1.0,
     keep_open: bool = True,
 ) -> float | None:
@@ -29,10 +31,13 @@ def preview(
     )
     fig = None
     try:
+        if seed is None:
+            seed = choice(SEED_RANGES["pilot"])
         env.reset(seed=seed)
+        print(f"Episode seed: {seed}")
         with plt.ion():
             fig, ax = plt.subplots(figsize=(6, 6))
-            fig.canvas.manager.set_window_title("Cue-matching game")
+            fig.canvas.manager.set_window_title(f"Cue-matching game | Seed: {seed}")
             image = ax.imshow(env.render(), interpolation="nearest")
             ax.axis("off")
             ax.set_title("CUE: remember this color")
@@ -70,7 +75,9 @@ def main():
     parser.add_argument(
         "--reward-delay", type=int, default=3, help="wait steps after the choice (0-64)"
     )
-    parser.add_argument("--seed", type=int, default=0, help="pilot episode seed (0-999)")
+    parser.add_argument(
+        "--seed", type=int, help="fixed pilot episode seed (0-999); random when omitted"
+    )
     parser.add_argument("--interval", type=float, default=1.0, help="seconds per animation step")
     parser.add_argument("--no-wait", action="store_true", help="close automatically after payout")
     args = parser.parse_args()

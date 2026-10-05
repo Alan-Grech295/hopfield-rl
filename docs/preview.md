@@ -23,6 +23,12 @@ then waits three steps for reward. Each step is visible for one second; the
 initial cue stays visible for 1.5 seconds. The final reward is printed to the
 terminal after the window is closed.
 
+Each launch chooses a random pilot seed from 0–999 and prints it to the terminal
+and window title. This samples the cue and layout, including which color is on
+the left. The colors stay fixed during an episode; consecutive episodes can
+still happen to have the same color order. Use `--seed` to replay a particular
+episode exactly.
+
 Close the window at any time to stop playback. At the end, the final frame stays
 open until you close it. To close automatically after payout, use `--no-wait`.
 
@@ -32,7 +38,7 @@ open until you close it. To close automatically after payout, use `--no-wait`.
 |---|---|---|
 | `--cue-delay` | 4 | Environment wait steps before choosing; integer 1–64 |
 | `--reward-delay` | 3 | Environment wait steps after choosing; integer 0–64 |
-| `--seed` | 0 | Reproducible pilot episode seed; integer 0–999 |
+| `--seed` | random | Set a reproducible pilot episode seed; integer 0–999 |
 | `--interval` | 1.0 | Positive, finite seconds per animation step |
 | `--no-wait` | off | Close automatically after the terminal frame |
 
