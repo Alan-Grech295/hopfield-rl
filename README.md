@@ -17,6 +17,24 @@ uv run ruff check src tests
 
 The environment uses Gymnasium and NumPy; M01 runs on CPU.
 
+## Watch the game
+
+```powershell
+uv run --extra preview python preview.py
+```
+
+This opens a window showing one automatic episode: cue, waiting, choice, then
+delayed reward. The final frame stays open until you close the window. Matplotlib
+is installed only when the optional `preview` extra is selected.
+
+Change the timing with, for example:
+
+```powershell
+uv run --extra preview python preview.py --cue-delay 8 --reward-delay 5 --interval 0.5
+```
+
+See [the viewer guide](docs/preview.md) for options, visual markers, and checks.
+
 ## Run M01
 
 ```powershell
