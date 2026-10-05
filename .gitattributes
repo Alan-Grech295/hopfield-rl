@@ -1,0 +1,7 @@
+# Keep source hashes and text experiment records stable across operating systems.
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+*.gz binary

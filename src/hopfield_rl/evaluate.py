@@ -4,6 +4,7 @@ Run with: python -m hopfield_rl.evaluate --output experiments/m01
 """
 
 import argparse
+import gzip
 import hashlib
 import json
 import platform
@@ -191,7 +192,7 @@ def validate(output: Path, episodes: int = 200, splits: tuple[str, ...] = ("held
     started = time.perf_counter()
     audits = {"memory": audit_memory_requirement(), "reward_delay": audit_reward_delay()}
     summaries = []
-    with (output / "episodes.jsonl").open("w", encoding="utf-8") as stream:
+    with gzip.open(output / "episodes.jsonl.gz", "wt", encoding="utf-8", newline="\n") as stream:
         for split, seeds in seeds_by_split.items():
             for variant in ("full_state", "delayed_cue", "visual"):
                 for cue_delay, reward_delay in DELAYS:
@@ -279,7 +280,8 @@ def validate(output: Path, episodes: int = 200, splits: tuple[str, ...] = ("held
             "packages": {name: version(name) for name in ("gymnasium", "numpy", "hopfield-rl")},
         },
         "source": source_revision(),
-        "episodes_sha256": hashlib.sha256((output / "episodes.jsonl").read_bytes()).hexdigest(),
+        "episodes_file": "episodes.jsonl.gz",
+        "episodes_sha256": hashlib.sha256((output / "episodes.jsonl.gz").read_bytes()).hexdigest(),
     }
     (output / "record.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     return report

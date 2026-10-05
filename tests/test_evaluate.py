@@ -1,3 +1,4 @@
+import gzip
 import hashlib
 import json
 
@@ -109,14 +110,15 @@ def test_exhaustive_audits():
 
 def test_record_has_raw_episodes_budgets_provenance_and_uncertainty(tmp_path):
     report = validate(tmp_path, episodes=2, splits=("pilot",))
-    rows = [json.loads(line) for line in (tmp_path / "episodes.jsonl").read_text().splitlines()]
+    with gzip.open(tmp_path / "episodes.jsonl.gz", "rt", encoding="utf-8") as stream:
+        rows = [json.loads(line) for line in stream]
     assert report["gate_passed"] and report["training_runs"] == 0
     assert len(report["conditions"]) == 72
     assert report["episodes"] == len(rows) == 144
     assert report["environment_steps"] == sum(row["steps"] for row in rows) + 4272
     assert (
         report["episodes_sha256"]
-        == hashlib.sha256((tmp_path / "episodes.jsonl").read_bytes()).hexdigest()
+        == hashlib.sha256((tmp_path / "episodes.jsonl.gz").read_bytes()).hexdigest()
     )
     assert json.loads((tmp_path / "record.json").read_text()) == report
     for condition in report["conditions"]:
